@@ -3,6 +3,7 @@ body {
   text-align: center;
   margin-top: 50px;
 }
+
 input {
   padding: 10px;
   font-size: 16px;
@@ -10,6 +11,7 @@ input {
   border: 2px solid #ccc;
   border-radius: 4px;
 }
+
 button {
   padding: 10px 15px;
   font-size: 18px;
@@ -20,9 +22,11 @@ button {
   border: none;
   border-radius: 4px;
 }
+
 button:hover {
   background-color: #45a049;
 }
+
 p {
   font-size: 14px;
 }
