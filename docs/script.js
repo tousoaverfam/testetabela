@@ -11,7 +11,7 @@ function sendWord() {
   }
 
   // 🔹 Replace with your Google Apps Script Web App URL
-const scriptURL = "https://script.google.com/macros/s/AKfycbwWhccWmWPnjndZBoUdhsPPhMCXx-HkF3ccPLdBEvrPVUtQMdMiW4N8YxTyl0MmyIJi/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbzCG3e5NtU8gZ3ess7kvn_y2ZzCbWfjrUzhp9cHvSn1tyIc_BA3Fy7Qu1EuVJXKvhD7/exec";
 
   fetch(scriptURL, {
     method: 'POST',
