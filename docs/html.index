@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to My GitHub Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🚀 Hello, World!</h1>
+    <p>Welcome to my first GitHub Pages website.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>About This Site</h2>
+      <p>This page is hosted using GitHub Pages. Every time I update my code and push it to GitHub, the site updates automatically.</p>
+    </section>
+
+    <section>
+      <h2>Get in Touch</h2>
+      <p>Email: <a href="mailto:example@email.com">example@email.com</a></p>
+      <p>GitHub: <a href="https://github.com/username" target="_blank">github.com/username</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with ❤️ and GitHub Pages</p>
+  </footer>
+</body>
+</html>
