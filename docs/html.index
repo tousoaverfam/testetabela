@@ -3,77 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Send Word to Google Sheet</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 50px;
-    }
-    input {
-      padding: 10px;
-      font-size: 16px;
-      width: 200px;
-      border: 2px solid #ccc;
-      border-radius: 4px;
-    }
-    button {
-      padding: 10px 15px;
-      font-size: 18px;
-      margin-left: 5px;
-      cursor: pointer;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 4px;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-    p {
-      font-size: 14px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <h1>Add Word to Google Sheet</h1>
   <input type="text" id="wordInput" placeholder="Type a word...">
-  <button onclick="sendWord()">+</button>
+  <button id="addButton">+</button>
 
   <p id="status"></p>
 
-  <script>
-    function sendWord() {
-      const word = document.getElementById("wordInput").value.trim();
-      const status = document.getElementById("status");
-
-      if (!word) {
-        status.textContent = "Please type a word first.";
-        status.style.color = "red";
-        return;
-      }
-
-      // 🔹 Replace this with your own Google Apps Script Web App URL
-      const scriptURL = "https://script.google.com/macros/s/AKfycbzjFsnvSaIpPek585t9cX_aOwoPuxHEortwajMKmLayM9lGS2ZRY0aGwLCIJ4l2quHQ/exec";
-
-      fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ word: word })
-      })
-      .then(() => {
-        status.textContent = `"${word}" sent to Google Sheet!`;
-        status.style.color = "green";
-        document.getElementById("wordInput").value = "";
-      })
-      .catch(error => {
-        console.error('Error!', error);
-        status.textContent = "Error sending data.";
-        status.style.color = "red";
-      });
-    }
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
