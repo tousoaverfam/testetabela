@@ -11,7 +11,7 @@ function sendWord() {
   }
 
   // 🔹 Replace with your Google Apps Script Web App URL
-  const scriptURL = "YOUR_WEB_APP_URL_HERE";
+const scriptURL = "https://script.google.com/macros/s/AKfycbx.../exec";
 
   fetch(scriptURL, {
     method: 'POST',
