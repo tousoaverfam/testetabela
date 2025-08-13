@@ -1,32 +1,34 @@
-document.getElementById("addButton").addEventListener("click", sendWord);
+const scriptURL = "https://script.google.com/macros/s/AKfycbx-lOU0zJh7vdQnM2kmiySMlkF4LxajyE9yIIVkjQce3xMeqFj5XUqHemJPlUztZxyM/exec"; // from Apps Script deployment
+const addBtn = document.getElementById("addBtn");
+const status = document.getElementById("status");
 
-function sendWord() {
+addBtn.addEventListener("click", () => {
   const word = document.getElementById("wordInput").value.trim();
-  const status = document.getElementById("status");
-
   if (!word) {
-    status.textContent = "Please type a word first.";
+    status.textContent = "Please enter a word.";
     status.style.color = "red";
     return;
   }
 
-  // 🔹 Replace with your Google Apps Script Web App URL
-const scriptURL = "https://script.google.com/macros/s/AKfycbzCG3e5NtU8gZ3ess7kvn_y2ZzCbWfjrUzhp9cHvSn1tyIc_BA3Fy7Qu1EuVJXKvhD7/exec";
-
   fetch(scriptURL, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ word: word })
   })
-  .then(() => {
-    status.textContent = `"${word}" sent to Google Sheet!`;
-    status.style.color = "green";
-    document.getElementById("wordInput").value = "";
+  .then(res => res.json())
+  .then(data => {
+    if (data.status === "success") {
+      status.textContent = `"${word}" added!`;
+      status.style.color = "green";
+      document.getElementById("wordInput").value = "";
+    } else {
+      status.textContent = "Error: " + data.message;
+      status.style.color = "red";
+    }
   })
-  .catch(error => {
-    console.error('Error!', error);
-    status.textContent = "Error sending data.";
+  .catch(err => {
+    status.textContent = "Request failed.";
     status.style.color = "red";
+    console.error(err);
   });
-}
+});
